@@ -1,5 +1,36 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
 }
+
+@model List<Appointment>
+
+@*Show all appointments that have been booked. Include an Edit and Delete button*@
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <td>Appointment Id</td>
+                <td>Date</td>  
+                <td>Time</td>
+                <td>Group Name</td>
+                <td>Edit</td>
+                <td>Delete</td>
+            </tr>
+        </thead>
+        @foreach (var x in Model.Where( y => y.Available == false))
+            {
+
+        <tbody>
+            <tr>
+                <td>@x.AppointmentId</td>
+                <td>@x.Time.Date</td>
+                <td>@x.Time.TimeOfDay</td>
+                <td>@x.group</td> I need to add .include to the home controller     
+                <td><a asp-controller="Home" asp-action="EditTask" asp-route-taskid="@x.AppointmentId">Edit</td>
+                <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.AppointmentId">Delete</td>
+            </tr>
+        </tbody>
+
+            }
+    </table>
+</div>

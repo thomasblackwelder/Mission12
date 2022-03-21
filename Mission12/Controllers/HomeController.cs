@@ -22,6 +22,15 @@ namespace Mission12.Controllers
         }
 
 
+        /// This code below needs to be fixed 
+        public IActionResult ViewAppointments()
+        {
+            var appts = context.groups
+                .Include(x => x.Group)
+
+            return View();
+        }
+
 
     }
 }
