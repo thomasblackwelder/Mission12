@@ -12,14 +12,18 @@ namespace Mission12.Controllers
     public class HomeController : Controller
     {
 
-        public HomeController()
+        private GroupContext context { get; set; }
+
+        public HomeController(GroupContext temp)
         {
+            context = temp;
         }
 
         public IActionResult Index()
         {
             return View();
         }
+
 
 
         /// This code below needs to be fixed 
@@ -29,6 +33,15 @@ namespace Mission12.Controllers
                 .Include(x => x.Group)
 
             return View();
+        }
+
+
+        public IActionResult SignUp()
+        {
+            var appts = context.Appointments
+                .Where(x => x.Available == true)
+                .ToList();
+            return View(appts);
         }
 
 
