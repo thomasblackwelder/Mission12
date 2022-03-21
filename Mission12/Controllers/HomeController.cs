@@ -12,8 +12,11 @@ namespace Mission12.Controllers
     public class HomeController : Controller
     {
 
-        public HomeController()
+        private GroupContext context { get; set; }
+
+        public HomeController(GroupContext temp)
         {
+            context = temp;
         }
 
         public IActionResult Index()
