@@ -24,6 +24,18 @@ namespace Mission12.Controllers
             return View();
         }
 
+
+
+        /// This code below needs to be fixed 
+        public IActionResult ViewAppointments()
+        {
+            var appts = context.groups
+                .Include(x => x.Group)
+
+            return View();
+        }
+
+
         public IActionResult SignUp()
         {
             var appts = context.Appointments
@@ -31,6 +43,7 @@ namespace Mission12.Controllers
                 .ToList();
             return View(appts);
         }
+
 
     }
 }
