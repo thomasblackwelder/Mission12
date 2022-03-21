@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "Appointment Sign Up";
+}
+@model List<Appointment>
+
+<h2>Appointment Sign Up</h2>
+
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <thead class="font-weight-bold">
+            <tr>
+                <td>Appointment Date/Time</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var a in Model)
+            {
+                <tr>
+                    <td>@a.Time</td>
+                    <td><button class="btn btn-primary">Sign Up</button></td>
+                </tr>
+                
+            }
+        </tbody>
+    </table>
+</div>
+
+

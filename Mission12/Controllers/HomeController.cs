@@ -24,7 +24,13 @@ namespace Mission12.Controllers
             return View();
         }
 
-
+        public IActionResult SignUp()
+        {
+            var appts = context.Appointments
+                .Where(x => x.Available == true)
+                .ToList();
+            return View(appts);
+        }
 
     }
 }
