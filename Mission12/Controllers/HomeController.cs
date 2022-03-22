@@ -56,11 +56,13 @@ namespace Mission12.Controllers
         }
 
 
-
-        public IActionResult SignUp()
+        [HttpGet]
+        public IActionResult SignUp(string showDate = "03/27/2022")
         {
+            DateTime oDate = Convert.ToDateTime(showDate);
             var appts = context.Appointments
                 .Where(x => x.Available == true)
+                .Where(x => x.Time.Date == oDate)
                 .ToList();
             return View(appts);
         }
