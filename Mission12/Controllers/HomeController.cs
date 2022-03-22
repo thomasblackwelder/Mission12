@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Mission12.Models;
 using System;
@@ -26,12 +27,12 @@ namespace Mission12.Controllers
 
 
 
-        /// This code below needs to be fixed 
         public IActionResult ViewAppointments()
         {
-            var appts = context.groups
-                .Include(x => x.Group)
-
+            var appts = context.Appointments
+                .Where(y => y.Available == false)
+             // .Include(x => x.GroupId)
+                .ToList();
             return View();
         }
 
