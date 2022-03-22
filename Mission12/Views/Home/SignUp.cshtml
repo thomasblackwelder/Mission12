@@ -10,17 +10,21 @@
     <table class="table table-bordered table-striped">
         <thead class="font-weight-bold">
             <tr>
-                <td>Appointment Date/Time</td>
+                <td>Sunday</td>
+                <td>Monday</td>
+                <td>Tuesday</td>
+                <td>Wednesday</td>
+                <td>Thursday</td>
+                <td>Friday</td>
+                <td>Saturday</td>
             </tr>
         </thead>
         <tbody>
             @foreach (var a in Model)
             {
                 <tr>
-                    <td>@a.Time</td>
-                    <td><button class="btn btn-primary">Sign Up</button></td>
+                    <td><button class="btn btn-primary">@a.Time.ToString("hh:mm tt")</button></td>
                 </tr>
-                
             }
         </tbody>
     </table>
