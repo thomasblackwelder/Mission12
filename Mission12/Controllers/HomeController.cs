@@ -43,7 +43,7 @@ namespace Mission12.Controllers
             }
             else
             {
-                return View();
+                return View("Index");
             }
         }
 
