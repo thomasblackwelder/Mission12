@@ -11,16 +11,22 @@ namespace Mission12.Models
         [Key]
         [Required]
         public long GroupId { get; set; }
+        
         [Required]
         public long AppointmentId { get; set; }
+        
         public Appointment Appointment { get; set; }
+        
         [Required]
         public string Name { get; set; }
+        
         [Required]
         public int Size { get; set; }
+        
         [EmailAddress]
         [Required]
         public string Email { get; set; }
+        
         public string Phone { get; set; }
     }
 

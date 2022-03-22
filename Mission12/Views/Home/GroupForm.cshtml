@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Group Information";
+}
+
+@model Mission12.Models.Group
+
+<h1>Enter your groups information:</h1>
+
+<div>
+    <form method="post">
+
+        <div asp-validation-summary="All"></div>
+
+        <label asp-for="Name">Name:</label>
+        <input asp-for="Name" /><br />
+
+        <label asp-for="Size">Size:</label>
+        <input asp-for="Size" />
+
+        <label asp-for="Email">Email:</label>
+        <input asp-for="Email" />
+
+        <label asp-for="Phone">Phone:</label>
+        <input asp-for="Phone"/>
+
+        <button type="submit">Finalize Appointment</button>
+
+    </form>
+</div>

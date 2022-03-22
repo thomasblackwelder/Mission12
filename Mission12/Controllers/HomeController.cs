@@ -24,13 +24,33 @@ namespace Mission12.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult GroupForm ()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        public IActionResult GroupForm (Group g)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Add(g);
+                context.SaveChanges();
+
+                return View();
+            }
+            else
+            {
+                return View();
+            }
+        }
 
         /// This code below needs to be fixed 
         public IActionResult ViewAppointments()
         {
-            var appts = context.groups
-                .Include(x => x.Group)
+            //var appts = context.groups
+            //    .Include(x => x.Group)
 
             return View();
         }
