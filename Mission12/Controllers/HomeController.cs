@@ -25,16 +25,40 @@ namespace Mission12.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult GroupForm ()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        public IActionResult GroupForm (Group g)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Add(g);
+                context.SaveChanges();
+
+                return View();
+            }
+            else
+            {
+                return View();
+            }
+        }
 
         public IActionResult ViewAppointments()
         {
+
             var appts = context.Appointments
                 .Where(y => y.Available == false)
              // .Include(x => x.GroupId)
                 .ToList();
+
+
             return View();
         }
+
 
 
         public IActionResult SignUp()
