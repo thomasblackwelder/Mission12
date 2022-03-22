@@ -1,22 +1,34 @@
 ﻿
 @{
     ViewData["Title"] = "Appointment Sign Up";
+
+    string sun = "03/27/2022";
+    string mon = "03/28/2022";
+    string tue = "03/29/2022";
+    string wed = "03/30/2022";
+    string thu = "03/31/2022";
+    string fri = "04/01/2022";
+    string sat = "04/02/2022";
 }
 @model List<Appointment>
+
 
 <h2>Appointment Sign Up</h2>
 
 <div class="container">
+
+    <a class="btn btn-primary" asp-controller="Home" asp-action="SignUp" asp-route-showdate="@sun">Sunday 3/27</a>
+    <a class="btn btn-primary" asp-controller="Home" asp-action="SignUp" asp-route-showdate="@mon">Monday 3/28</a>
+    <a class="btn btn-primary" asp-controller="Home" asp-action="SignUp" asp-route-showdate="@tue">Tuesday 3/29</a>
+    <a class="btn btn-primary" asp-controller="Home" asp-action="SignUp" asp-route-showdate="@wed">Wednesday 3/30</a>
+    <a class="btn btn-primary" asp-controller="Home" asp-action="SignUp" asp-route-showdate="@thu">Thursday 3/31</a>
+    <a class="btn btn-primary" asp-controller="Home" asp-action="SignUp" asp-route-showdate="@fri">Friday 4/1</a>
+    <a class="btn btn-primary" asp-controller="Home" asp-action="SignUp" asp-route-showdate="@sat">Saturday 4/2</a>
+
     <table class="table table-bordered table-striped">
         <thead class="font-weight-bold">
             <tr>
-                <td>Sunday</td>
-                <td>Monday</td>
-                <td>Tuesday</td>
-                <td>Wednesday</td>
-                <td>Thursday</td>
-                <td>Friday</td>
-                <td>Saturday</td>
+                <td>@Model[0].Time.ToString("M")</td>
             </tr>
         </thead>
         <tbody>
