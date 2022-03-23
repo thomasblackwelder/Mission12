@@ -16,30 +16,35 @@
 <h2>Appointment Sign Up</h2>
 
 <div class="container">
+    <div class="row">
+        <div class="col-3">
+            <a class="btn btn-primary btn-block" asp-controller="Home" asp-action="SignUp" asp-route-showdate="@sun">Sunday 3/27</a>
+            <a class="btn btn-primary btn-block" asp-controller="Home" asp-action="SignUp" asp-route-showdate="@mon">Monday 3/28</a>
+            <a class="btn btn-primary btn-block" asp-controller="Home" asp-action="SignUp" asp-route-showdate="@tue">Tuesday 3/29</a>
+            <a class="btn btn-primary btn-block" asp-controller="Home" asp-action="SignUp" asp-route-showdate="@wed">Wednesday 3/30</a>
+            <a class="btn btn-primary btn-block" asp-controller="Home" asp-action="SignUp" asp-route-showdate="@thu">Thursday 3/31</a>
+            <a class="btn btn-primary btn-block" asp-controller="Home" asp-action="SignUp" asp-route-showdate="@fri">Friday 4/1</a>
+            <a class="btn btn-primary btn-block" asp-controller="Home" asp-action="SignUp" asp-route-showdate="@sat">Saturday 4/2</a>
+        </div>
 
-    <a class="btn btn-primary" asp-controller="Home" asp-action="SignUp" asp-route-showdate="@sun">Sunday 3/27</a>
-    <a class="btn btn-primary" asp-controller="Home" asp-action="SignUp" asp-route-showdate="@mon">Monday 3/28</a>
-    <a class="btn btn-primary" asp-controller="Home" asp-action="SignUp" asp-route-showdate="@tue">Tuesday 3/29</a>
-    <a class="btn btn-primary" asp-controller="Home" asp-action="SignUp" asp-route-showdate="@wed">Wednesday 3/30</a>
-    <a class="btn btn-primary" asp-controller="Home" asp-action="SignUp" asp-route-showdate="@thu">Thursday 3/31</a>
-    <a class="btn btn-primary" asp-controller="Home" asp-action="SignUp" asp-route-showdate="@fri">Friday 4/1</a>
-    <a class="btn btn-primary" asp-controller="Home" asp-action="SignUp" asp-route-showdate="@sat">Saturday 4/2</a>
-
-    <table class="table table-bordered table-striped">
-        <thead class="font-weight-bold">
-            <tr>
-                <td>@Model[0].Time.ToString("M")</td>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var a in Model)
-            {
-                <tr>
-                    <td><button class="btn btn-primary">@a.Time.ToString("hh:mm tt")</button></td>
-                </tr>
-            }
-        </tbody>
-    </table>
+        <div class="col">
+            <table class="table table-bordered table-striped">
+                <thead class="font-weight-bold">
+                    <tr>
+                        <td>@Model[0].Time.ToString("M")</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var a in Model)
+                    {
+                        <tr>
+                            <td><a class="btn btn-primary btn-block" asp-action="GroupForm">@a.Time.ToString("hh:mm tt")</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
 
