@@ -44,7 +44,7 @@ namespace Mission12.Controllers
             }
             else
             {
-                return View();
+                return View("Index");
             }
         }
         public IActionResult ViewAppointments()
@@ -79,6 +79,7 @@ namespace Mission12.Controllers
 
             return RedirectToAction("MovieList");
 
+
         }
 
 
@@ -101,10 +102,15 @@ namespace Mission12.Controllers
             return RedirectToAction("ViewAppointments");
         }
 
-        public IActionResult SignUp()
+
+        [HttpGet]
+        public IActionResult SignUp(string showdate = "03/27/2022")
+
         {
+            DateTime oDate = Convert.ToDateTime(showdate);
             var appts = context.Appointments
                 .Where(x => x.Available == true)
+                .Where(x => x.Time.Date == oDate)
                 .ToList();
             return View(appts);
         }
