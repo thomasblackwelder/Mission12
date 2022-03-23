@@ -25,6 +25,28 @@ namespace Mission12.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult GroupForm ()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult GroupForm (Group g)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Add(g);
+                context.SaveChanges();
+        
+
+                return View();
+            }
+            else
+            {
+                return View();
+            }
+        }
         public IActionResult ViewAppointments()
         {
             //var appts = context.Appointments
@@ -32,14 +54,13 @@ namespace Mission12.Controllers
             //    .Include(x => x.Group)
             //    .ToList();
             //return View(appts);
-
-
             var appts = context.Groups
                 .Include(x => x.Appointment)
                 .Where(y => y.Appointment.Available == false)
                 .ToList();
                return View(appts);
         }
+
 
 
         public IActionResult SignUp()
