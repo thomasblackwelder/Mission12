@@ -26,9 +26,15 @@ namespace Mission12.Controllers
         }
 
         [HttpGet]
-        public IActionResult GroupForm ()
+        public IActionResult GroupForm (string time, string date)
         {
-            return View();
+            var group = new Group(); 
+
+            ViewBag.Appointments = context.Appointments.Where(x => x.AppointmentId == a);
+            return View(group);
+
+            ViewBag.Time = time;
+            ViewBag.Date = date;
         }
 
         [HttpPost]
@@ -38,8 +44,10 @@ namespace Mission12.Controllers
             {
                 context.Add(g);
                 context.SaveChanges();
+
+                List<Group> listgroup = context.Groups.ToList();
  
-                return View("ViewAppointments", g);
+                return View("ViewAppointments", listgroup);
             }
             else
             {
@@ -76,7 +84,7 @@ namespace Mission12.Controllers
             context.Update(blah);
             context.SaveChanges();
 
-            return RedirectToAction("MovieList");
+            return RedirectToAction("ViewAppointment");
         }
 
 
