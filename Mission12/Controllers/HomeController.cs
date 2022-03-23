@@ -38,9 +38,8 @@ namespace Mission12.Controllers
             {
                 context.Add(g);
                 context.SaveChanges();
-        
-
-                return View();
+ 
+                return View("ViewAppointments", g);
             }
             else
             {
@@ -77,6 +76,7 @@ namespace Mission12.Controllers
             context.Update(blah);
             context.SaveChanges();
 
+
             return RedirectToAction("ViewAppointments");
 
 
@@ -90,7 +90,6 @@ namespace Mission12.Controllers
         //    var appointment = context.Appointments.Single(x => x.AppointmentId == appointmentId);
         //    return View(appointment);
         //}
-
 
 
         ///Should the delete method just change available from T to F rather than remove the whole appointment? (T.B.)
@@ -115,7 +114,5 @@ namespace Mission12.Controllers
                 .ToList();
             return View(appts);
         }
-
-
     }
 }
