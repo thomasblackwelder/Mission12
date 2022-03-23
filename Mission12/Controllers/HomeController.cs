@@ -64,7 +64,7 @@ namespace Mission12.Controllers
         [HttpGet]
         public IActionResult Edit(long appointmentId)
         {
-           ViewBag.Appointments = context.Appointments.ToList();
+           //var blah = context.Appointments.ToList();
 
             var groupInfo = context.Groups.Single(x => x.AppointmentId == appointmentId);
 
@@ -82,13 +82,13 @@ namespace Mission12.Controllers
         }
 
 
-        //I dont think we need this get method actually since we dont have a delete page but we could build one (T.B.)
-        [HttpGet]
-        public IActionResult Delete(long appointmentId)
-        {
-            var appointment = context.Appointments.Single(x => x.AppointmentId == appointmentId);
-            return View(appointment);
-        }
+        ////I dont think we need this get method actually since we dont have a delete page but we could build one (T.B.)
+        //[HttpGet]
+        //public IActionResult Delete(long appointmentId)
+        //{
+        //    var appointment = context.Appointments.Single(x => x.AppointmentId == appointmentId);
+        //    return View(appointment);
+        //}
 
 
 
