@@ -21,7 +21,10 @@
         <input asp-for="Email" />
 
         <label asp-for="Phone">Phone:</label>
-        <input asp-for="Phone"/>
+        <input asp-for="Phone" />
+
+        <input type="hidden" asp-for="AppointmentId" />
+        <input type="hidden" asp-for="Appointment.Available" value="false"/>
 
         <button type="submit">Finalize Appointment</button>
 

@@ -17,20 +17,19 @@
                 <td>Delete</td>
             </tr>
         </thead>
-        @foreach (var x in Model)
-            {
 
         <tbody>
-            <tr>
-                <td>@x.AppointmentId</td>
-                <td>@x.Appointment.Time.Date</td>
-                <td>@x.Appointment.Time.TimeOfDay</td>
-                <td>@x.GroupId</td> 
-                <td><a asp-controller="Home" asp-action="EditAppointment" asp-route-taskid="@x.AppointmentId">Edit</a></td>
-                <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.AppointmentId">Delete</a></td>
-            </tr>
-        </tbody>
-
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@x.AppointmentId</td>
+                    <td>@x.Appointment.Time.Date</td>
+                    <td>@x.Appointment.Time.TimeOfDay</td>
+                    <td>@x.GroupId</td>
+                    <td><a asp-controller="Home" asp-action="EditAppointment" asp-route-taskid="@x.AppointmentId">Edit</a></td>
+                    <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.AppointmentId">Delete</a></td>
+                </tr>
             }
+        </tbody>
     </table>
 </div>
