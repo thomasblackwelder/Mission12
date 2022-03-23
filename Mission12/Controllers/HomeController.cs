@@ -76,7 +76,10 @@ namespace Mission12.Controllers
             context.Update(blah);
             context.SaveChanges();
 
-            return RedirectToAction("MovieList");
+
+            return RedirectToAction("ViewAppointments");
+
+
         }
 
 
@@ -91,9 +94,10 @@ namespace Mission12.Controllers
 
         ///Should the delete method just change available from T to F rather than remove the whole appointment? (T.B.)
         [HttpPost]
-        public IActionResult Delete(Appointment apt)
+        public IActionResult Delete(Group grp)
         {
-            context.Appointments.Remove(apt);
+            context.Groups.Remove(grp);
+            context.Appointments.Where(x => x.AppointmentId == grp.AppointmentId).FirstOrDefault().Available = true;
             context.SaveChanges();
             return RedirectToAction("ViewAppointments");
         }
