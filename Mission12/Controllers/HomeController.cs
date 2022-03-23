@@ -61,9 +61,51 @@ namespace Mission12.Controllers
                return View(appts);
         }
 
+        [HttpGet]
+        public IActionResult Edit(long appointmentId)
+        {
+           //var blah = context.Appointments.ToList();
+
+            var groupInfo = context.Groups.Single(x => x.AppointmentId == appointmentId);
+
+            return View("GroupForm", groupInfo);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Appointment blah )
+        {
+            context.Update(blah);
+            context.SaveChanges();
+
+            return RedirectToAction("MovieList");
+
+
+        }
+
+
+        ////I dont think we need this get method actually since we dont have a delete page but we could build one (T.B.)
+        //[HttpGet]
+        //public IActionResult Delete(long appointmentId)
+        //{
+        //    var appointment = context.Appointments.Single(x => x.AppointmentId == appointmentId);
+        //    return View(appointment);
+        //}
+
+
+
+        ///Should the delete method just change available from T to F rather than remove the whole appointment? (T.B.)
+        [HttpPost]
+        public IActionResult Delete(Appointment apt)
+        {
+            context.Appointments.Remove(apt);
+            context.SaveChanges();
+            return RedirectToAction("ViewAppointments");
+        }
+
 
         [HttpGet]
         public IActionResult SignUp(string showdate = "03/27/2022")
+
         {
             DateTime oDate = Convert.ToDateTime(showdate);
             var appts = context.Appointments
