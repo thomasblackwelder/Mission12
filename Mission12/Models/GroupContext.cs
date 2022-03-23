@@ -24,14 +24,14 @@ namespace Mission12.Models
                 {
                     AppointmentId = 1,
                     Time = DateTime.SpecifyKind(new DateTime(2022, 3, 27, 8, 0, 0), DateTimeKind.Local),
-                    Available = true
+                    Available = false
                 },
 
                 new Appointment
                 {
                     AppointmentId = 2,
                     Time = DateTime.SpecifyKind(new DateTime(2022, 3, 27, 9, 0, 0), DateTimeKind.Local),
-                    Available = true
+                    Available = false
                 },
 
                 new Appointment
