@@ -25,15 +25,20 @@ namespace Mission12.Controllers
             return View();
         }
 
-
-
         public IActionResult ViewAppointments()
         {
-            var appts = context.Appointments
-                .Where(y => y.Available == false)
-             // .Include(x => x.GroupId)
+            //var appts = context.Appointments
+            //    .Where(y => y.Available == false)
+            //    .Include(x => x.Group)
+            //    .ToList();
+            //return View(appts);
+
+
+            var appts = context.Groups
+                .Include(x => x.Appointment)
+                .Where(y => y.Appointment.Available == false)
                 .ToList();
-            return View();
+               return View(appts);
         }
 
 

@@ -24,7 +24,7 @@ namespace Mission12.Models
                 {
                     AppointmentId = 1,
                     Time = DateTime.SpecifyKind(new DateTime(2008, 4, 10, 6, 30, 0), DateTimeKind.Local),
-                    Available = true
+                    Available = false
                 });
 
             mb.Entity<Group>().HasData(
