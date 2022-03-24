@@ -11,6 +11,8 @@
 
         <div asp-validation-summary="All"></div>
 
+        <input type="hidden" asp-for="GroupId" value="@ViewBag.GID"/>
+
         <label asp-for="Name">Name:</label>
         <input asp-for="Name" /><br />
 

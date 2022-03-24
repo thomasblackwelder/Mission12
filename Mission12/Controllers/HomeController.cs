@@ -29,6 +29,7 @@ namespace Mission12.Controllers
         public IActionResult GroupForm (long a)
         {
             ViewBag.Appt = a;
+            ViewBag.GID = 0;
             return View();
         }
 
@@ -68,12 +69,15 @@ namespace Mission12.Controllers
            //var blah = context.Appointments.ToList();
 
             var groupInfo = context.Groups.Single(x => x.AppointmentId == appointmentId);
+            ViewBag.Appt = appointmentId;
+            ViewBag.GID = groupInfo.GroupId;
+
 
             return View("GroupForm", groupInfo);
         }
 
         [HttpPost]
-        public IActionResult Edit(Appointment blah )
+        public IActionResult Edit(Group blah)
         {
             context.Update(blah);
             context.SaveChanges();
@@ -95,7 +99,7 @@ namespace Mission12.Controllers
 
 
         ///Should the delete method just change available from T to F rather than remove the whole appointment? (T.B.)
-        [HttpPost]
+
         public IActionResult Delete(Group grp)
         {
             context.Groups.Remove(grp);
