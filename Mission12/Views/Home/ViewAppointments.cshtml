@@ -26,11 +26,11 @@
             {
                 <tr>
                     <td>@x.AppointmentId</td>
-                    <td>@x.Appointment.Time.Date</td>
+                    <td>@x.Appointment.Time</td>
                     <td>@x.Appointment.Time.TimeOfDay</td>
-                    <td>@x.GroupId</td>
-                    <td><a asp-controller="Home" asp-action="EditAppointment" asp-route-taskid="@x.AppointmentId">Edit</a></td>
-                    <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@x.AppointmentId">Delete</a></td>
+                    <td>@x.Name</td>
+                    <td><a asp-controller="Home" asp-action="Edit" asp-route-appointmentId="@x.AppointmentId">Edit</a></td>
+                    <td><a asp-controller="Home" asp-action="Delete" asp-route-grp="@x.AppointmentId">Delete</a></td>
                 </tr>
 
             }
