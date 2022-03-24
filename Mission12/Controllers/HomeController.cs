@@ -41,11 +41,11 @@ namespace Mission12.Controllers
                 context.Appointments.Single(x => x.AppointmentId == g.AppointmentId).Available = false;
                 context.SaveChanges();
  
-                return View("ViewAppointments", g);
+                return RedirectToAction("ViewAppointments");
             }
             else
             {
-                return View("Index");
+                return View();
             }
         }
         public IActionResult ViewAppointments()
