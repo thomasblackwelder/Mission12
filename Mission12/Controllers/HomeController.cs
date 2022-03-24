@@ -40,14 +40,12 @@ namespace Mission12.Controllers
                 context.Add(g);
                 context.Appointments.Single(x => x.AppointmentId == g.AppointmentId).Available = false;
                 context.SaveChanges();
-
-                List<Group> listgroup = context.Groups.ToList();
  
-                return View("ViewAppointments", listgroup);
+                return RedirectToAction("ViewAppointments");
             }
             else
             {
-                return View("Index");
+                return View();
             }
         }
         public IActionResult ViewAppointments()
