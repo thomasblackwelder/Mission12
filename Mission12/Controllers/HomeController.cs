@@ -77,7 +77,10 @@ namespace Mission12.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(Group blah)
+
+
+        public IActionResult Edit(Group blah )
+
         {
             context.Update(blah);
             context.SaveChanges();
@@ -100,10 +103,16 @@ namespace Mission12.Controllers
 
         ///Should the delete method just change available from T to F rather than remove the whole appointment? (T.B.)
 
-        public IActionResult Delete(Group grp)
+
+   
+
+        
+        public IActionResult Delete(long grpId)
+
         {
-            context.Groups.Remove(grp);
+            var grp = context.Groups.Single(x => x.GroupId == grpId);
             context.Appointments.Where(x => x.AppointmentId == grp.AppointmentId).FirstOrDefault().Available = true;
+            context.Groups.Remove(grp);
             context.SaveChanges();
             return RedirectToAction("ViewAppointments");
         }
