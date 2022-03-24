@@ -38,7 +38,7 @@
                     @foreach (var a in Model)
                     {
                         <tr>
-                            <td><a class="btn btn-primary btn-block" asp-action="GroupForm">@a.Time.ToString("hh:mm tt")</a></td>
+                            <td><a class="btn btn-primary btn-block" asp-action="GroupForm" asp-route-a="@a.AppointmentId">@a.Time.ToString("hh:mm tt")</a></td>
                         </tr>
                     }
                 </tbody>
