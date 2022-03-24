@@ -23,8 +23,8 @@
         <label asp-for="Phone">Phone:</label>
         <input asp-for="Phone" />
 
-        <input type="hidden" asp-for="AppointmentId" />
-        <input type="hidden" asp-for="Appointment.Available" value="false"/>
+        <input type="hidden" asp-for="AppointmentId" value="ViewBag.Appt"/>
+        @*<input type="hidden" asp-for="Appointment.Available" value="false"/>*@
 
         <button type="submit">Finalize Appointment</button>
 
